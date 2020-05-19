@@ -35,7 +35,7 @@ for run yor project with godot server:
 
 your project should run in server mode.
 
-known ussues:
+known issues:
 if you use GDnative or plugins made with it your project could say :
 SCRIPT ERROR: _ready: Attempt to call function 'xxx' in base 'NativeScript' on a null instance.
 or stoped or show similar errors
