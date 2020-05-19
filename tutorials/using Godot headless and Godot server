@@ -1,0 +1,52 @@
+Godot Headless is a Linux 64-bit build of the editor tools to run on headless environment. It is used from the command line to run tests or export projects.
+
+Godot Server is a Linux 64-bit build of the export template running without graphics and audio, useful to host server instances for Godot games.
+
+For use it :
+
+Download it from: https://godotengine.org/download/server
+
+in linux: Go to /usr/local/bin and paste the executable (godot server or/and godot headless) * you need root privileges for paste it *
+
+recomendation : 
+change the executable name eg: "Godot_v3.2.1-stable_linux_headless" to "godot_headless" 
+and/or "Godot_v3.2.1-stable_linux_server" to "godot_server"
+
+Now you can use commands from console 
+https://docs.godotengine.org/en/stable/getting_started/editor/command_line_tutorial.html
+try : 
+
+'godot_headless --version' or 'godot_server --version'
+
+console return: 3.2.1.stable.official (in the actual case)
+
+for run yor project with godot headless: 
+
+1. go to project folder , right click and select : "open in terminal"
+2. in terminal write: godot_headless
+
+your project should run in headless mode.
+
+for run yor project with godot server:
+
+1.export your project INTO your project folder (you can export from normal editor), you can export with the option "embed pck" on too.
+2. go to project folder , right click and select : "open in terminal"
+3. in terminal write: godot_server
+
+your project should run in server mode.
+
+known ussues:
+if you use GDnative or plugins made with it your project could say :
+SCRIPT ERROR: _ready: Attempt to call function 'xxx' in base 'NativeScript' on a null instance.
+or stoped or show similar errors
+
+possible solution: 
+https://godotengine.org/qa/63890/how-to-open-gdnative-projects-with-headless-server-godot?show=63890#q63890
+
+You have to manually add entry/dependencies to the *.gdnlib file. If you are compiling for linux, for instance, copy the lines with the paths to your library and dependencies but use Server instead of X11.64:
+
+[entry]
+
+X11.64="res://path/to/my/lib.so"
+
+Server="res://path/to/my/lib.so"
